@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ismail_portfolio/constants/app_colors.dart';
-import 'package:ismail_portfolio/presentation/utils/empty.dart';
-import 'package:ismail_portfolio/presentation/utils/extensions.dart';
+import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
 import 'package:ismail_portfolio/presentation/widgets/on_hover.dart';
 
 class Work extends StatefulWidget {
@@ -81,7 +80,7 @@ class _WorkState extends State<Work> {
           children: List.generate(
             projects.length,
             (index) => Container(
-              height: size.height + size.height / 5,
+              height: size.height + size.height / 6,
               color: projects[index]["color"],
               child: Center(
                 child: projectSection(size, projects[index]),
@@ -101,10 +100,10 @@ class _WorkState extends State<Work> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               SizedBox(
-                height: 700.getH(context),
-                width: 700.getW(context),
+                height: 700.h,
+                width: 800.w,
                 child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 500),
+                  duration: 650.milliseconds,
                   curve: Curves.easeIn,
                   transform: isHoverd
                       ? (Matrix4.identity()..scale(1.06))
@@ -113,8 +112,7 @@ class _WorkState extends State<Work> {
                     borderRadius: BorderRadius.circular(20),
                     child: Image.asset(
                       project["img"],
-                      // Replace with your image path
-                      fit: BoxFit.cover, // Fit the image to the container
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -123,10 +121,10 @@ class _WorkState extends State<Work> {
             ],
           ),
           AnimatedPositioned(
-            duration: const Duration(milliseconds: 500),
+            duration: 650.milliseconds,
             curve: Curves.easeIn,
-            right: isHoverd ? 200.getW(context) : 300.getW(context),
-            top: 120.getH(context),
+            right: isHoverd ? 250.w : 400.w,
+            top: 150.h,
             child: projectInfoCard(size, project["title"],
                 project["description"], project["type"]),
           ),
@@ -143,7 +141,6 @@ class _WorkState extends State<Work> {
     String type,
   ) {
     return Container(
-      // width: size.width / 3,
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
@@ -158,38 +155,39 @@ class _WorkState extends State<Work> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          SizedBox(width: 30.getW(context)),
+          30.width,
           RotatedBox(
             quarterTurns: 3,
             child: Text(
               type,
               style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 15.getW(context),
-                  color: AppColors.black.withOpacity(0.6)),
+                fontWeight: FontWeight.w500,
+                fontSize: 25.sp,
+                color: AppColors.black.withOpacity(0.6),
+              ),
             ),
           ),
-          SizedBox(width: 40.getW(context)),
+          40.width,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SizedBox(height: 30.getH(context)),
+              50.height,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text(
                     title,
                     overflow: TextOverflow.ellipsis,
-                    style:  TextStyle(
-                      fontSize: 35.getW(context),
+                    style: TextStyle(
+                      fontSize: 50.sp,
                       fontWeight: FontWeight.w600,
                       color: AppColors.textColor,
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 30.getH(context)),
+             30.height,
               SizedBox(
                 width: size.width / 4,
                 child: Text(
@@ -197,12 +195,12 @@ class _WorkState extends State<Work> {
                   maxLines: 8,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 18.getW(context),
+                    fontSize: 25.sp,
                     color: AppColors.textColor.withOpacity(0.8),
                   ),
                 ),
               ),
-              SizedBox(height: 30.getH(context)),
+              30.height,
               OnHover(
                 builder: (isHoverd) => Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -217,17 +215,17 @@ class _WorkState extends State<Work> {
                         AnimatedContainer(
                           duration: const Duration(milliseconds: 350),
                           height: 2,
-                          width: isHoverd ? 30 : 5,
+                          width: isHoverd ? 30.w : 5.w,
                           color: AppColors.textColor,
                           child: const SizedBox(),
                         ),
-                        const SizedBox(width: 10),
-                         Text(
+                        10.width,
+                        Text(
                           "See More",
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             color: AppColors.textColor,
-                            fontSize: 18.getW(context),
+                            fontSize: 25.sp,
                           ),
                         ),
                       ],
@@ -235,10 +233,10 @@ class _WorkState extends State<Work> {
                   ],
                 ),
               ),
-              SizedBox(height: 40.getH(context)),
+              40.height,
             ],
           ),
-          SizedBox(width: 30.getW(context)),
+          30.width,
         ],
       ),
     );

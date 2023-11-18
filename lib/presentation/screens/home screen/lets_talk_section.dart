@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:ismail_portfolio/constants/app_colors.dart';
-import 'package:ismail_portfolio/presentation/utils/extensions.dart';
+import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
+import 'package:ismail_portfolio/core/utils/extensions/widget_extensions.dart';
 import 'package:ismail_portfolio/presentation/widgets/on_hover.dart';
 
 class LetsTalk extends StatelessWidget {
-  List contact = [
+  final List contact = [
     {
       "icon": "assets/icons/linked-in.png",
       "url": "",
@@ -41,18 +42,18 @@ class LetsTalk extends StatelessWidget {
         children: [
           const SizedBox(),
           Container(
-                height: 200.getH(context),
-                width: 200.getW(context),
-                decoration: BoxDecoration(
-                  color: AppColors.orange,
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: const SizedBox(),
-              ),
+            height: 250.h,
+            width: 300.w,
+            decoration: BoxDecoration(
+              color: AppColors.orange,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: const SizedBox(),
+          ),
           Text(
             "Let's work together",
             style: TextStyle(
-              fontSize: 140.getW(context),
+              fontSize: 180.sp,
               fontWeight: FontWeight.w500,
               height: 1,
               color: AppColors.silver,
@@ -62,23 +63,24 @@ class LetsTalk extends StatelessWidget {
             builder: (isHoverd) => AnimatedOpacity(
               opacity: isHoverd ? 1 : 0.1,
               duration: const Duration(milliseconds: 600),
-              child:  AnimatedDefaultTextStyle(
+              child: AnimatedDefaultTextStyle(
                 style: TextStyle(
-                  fontSize: 30.getW(context),
+                  fontSize: 50.sp,
                   fontFamily: 'Outfit',
                   fontWeight: FontWeight.w200,
                   color: AppColors.silver,
                 ),
                 duration: const Duration(milliseconds: 150),
-                child: const Text("Feel free to reach out anytime, I'm available for Consultancy & Freelancing"),
+                child: const Text(
+                    "Feel free to reach out anytime, I'm available for Consultancy & Freelancing"),
               ),
             ),
           ),
           OnHover(
             builder: (isHoverd) => AnimatedContainer(
-              duration: const Duration(milliseconds: 350),
-              width: isHoverd ? size.width / 5 : 50,
-              height: 40,
+              duration: 350.milliseconds,
+              width: isHoverd ? size.width / 5 : 70.w,
+              height: 60.h,
               decoration: BoxDecoration(
                 border: Border.all(color: AppColors.orange, width: 1),
                 color: const Color(0xdd000000),
@@ -94,15 +96,15 @@ class LetsTalk extends StatelessWidget {
                         ? Icons.send
                         : Icons.keyboard_double_arrow_right_rounded,
                     color: AppColors.orange,
-                    size: 20,
+                    size: 30.sp,
                   ),
                   AnimatedDefaultTextStyle(
-                    duration: const Duration(milliseconds: 350),
+                    duration: 350.milliseconds,
                     style: TextStyle(
                       fontFamily: 'Outfit',
                       color: AppColors.silver,
                       fontWeight: FontWeight.w500,
-                      fontSize: isHoverd ? 20.getW(context) : 0,
+                      fontSize: isHoverd ? 35.sp : 0,
                     ),
                     child: const Text(
                       "ialshofi@gmail.com",
@@ -121,26 +123,23 @@ class LetsTalk extends StatelessWidget {
                     transform: isHoverd
                         ? (Matrix4.identity()..scale(1.1, 1.1, 1.0))
                         : Matrix4.identity(),
-                    duration: const Duration(milliseconds: 100),
+                    duration: 100.milliseconds,
                     margin: const EdgeInsets.symmetric(horizontal: 10),
                     child: Image(image: AssetImage(contact[index]["icon"]))),
               ),
             ),
           ),
-          Padding(
-            padding:const EdgeInsets.all(8.0),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Text(
-                "© 2023 Built & Desiged By Ismail Alshofi",
-                style: TextStyle(
-                  fontSize: 18.getW(context),
-                  fontWeight: FontWeight.w300,
-                  color: AppColors.white,
-                ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Text(
+              "© 2023 Built & Desiged By Ismail Alshofi",
+              style: TextStyle(
+                fontSize: 30.sp,
+                fontWeight: FontWeight.w300,
+                color: AppColors.white,
               ),
             ),
-          ),
+          ).paddingAll(8.sp),
         ],
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:ismail_portfolio/constants/app_colors.dart';
-import 'package:ismail_portfolio/presentation/utils/extensions.dart';
 
 class AppStyles {
   static TextStyle menuItemStyle = TextStyle(

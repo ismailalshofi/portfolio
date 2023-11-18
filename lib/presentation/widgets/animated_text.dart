@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ismail_portfolio/constants/app_colors.dart';
-import 'package:ismail_portfolio/constants/app_style.dart';
-import 'package:ismail_portfolio/presentation/utils/extensions.dart';
+import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
 
 class AnimatedText extends StatefulWidget {
   final String text;
@@ -25,20 +24,25 @@ class _AnimatedTextState extends State<AnimatedText> {
         duration: const Duration(microseconds: 200),
         transform: transform,
         child: SizedBox(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text( widget.text, style : Theme.of(context).textTheme.bodySmall),
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 350),
-                height: 2,
-                width: isHoverd ? 40.getW(context) : 0,
-                color: AppColors.textColor,
-                child:const SizedBox(),
-              )
-            ],
-          )
-        ),
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              widget.text,
+              style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.textColor.withOpacity(0.8),
+                  fontSize: 30.sp),
+            ),
+            AnimatedContainer(
+              duration: const Duration(milliseconds: 350),
+              height: 2,
+              width: isHoverd ? 70.w : 0,
+              color: AppColors.textColor,
+              child: const SizedBox(),
+            )
+          ],
+        )),
       ),
     );
   }

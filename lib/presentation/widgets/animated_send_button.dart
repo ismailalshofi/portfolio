@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ismail_portfolio/constants/app_colors.dart';
 
 class AnimatedSendButton extends StatefulWidget {
   const AnimatedSendButton({Key? key}) : super(key: key);

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ismail_portfolio/constants/app_colors.dart';
 import 'package:ismail_portfolio/constants/app_style.dart';
-import 'package:ismail_portfolio/presentation/utils/extensions.dart';
-import 'package:ismail_portfolio/presentation/utils/spacer.dart';
+import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
 import 'package:ismail_portfolio/presentation/widgets/animated_text.dart';
 
 import 'introduction_section.dart';
@@ -45,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _buildAppBar() {
     return Container(
-      height: (100).getH(context),
+      height: 100.h,
       color: AppColors.pink,
       width: MediaQuery.of(context).size.width,
       child: Padding(
@@ -54,15 +53,15 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             const AnimatedText(text: " Home "),
-            SizedBox(width: 40.getW(context)),
+            SizedBox(width: 40.w),
             const AnimatedText(text: " Work "),
-            SizedBox(width: 40.getW(context)),
+            SizedBox(width: 40.w),
             const AnimatedText(text: "Contact"),
-            SizedBox(width: 40.getW(context)),
+            SizedBox(width: 40.w),
             const AnimatedText(text: " About"),
-            SizedBox(width: 40.getW(context)),
+            SizedBox(width: 40.w),
             const AnimatedText(text: "Resume"),
-            SizedBox(width: 40.getW(context)),
+            SizedBox(width: 40.w),
           ],
         ),
       ),

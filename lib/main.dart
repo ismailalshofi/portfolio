@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:ismail_portfolio/configure_di.dart';
 import 'package:ismail_portfolio/constants/app_colors.dart';
-import 'package:ismail_portfolio/presentation/utils/extensions.dart';
+import 'package:ismail_portfolio/core/app_store/app_store.dart';
+import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
 import 'presentation/screens/home screen/home_screen.dart';
 
-void main() {
+void main() async{
+  
+  await configureInjection();
+  await getIt<AppStore>().initial();
   runApp(const Portfolio());
 }
 
@@ -17,29 +22,11 @@ class Portfolio extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         fontFamily: 'Outfit',
-        textTheme: TextTheme(
-          titleLarge: TextStyle(
-            fontSize: 180.getW(context),
-            height: 1,
-            fontWeight: FontWeight.w500,
-            color: AppColors.textColor,
-          ),
-          titleSmall: TextStyle(
-            fontSize: 30.getW(context),
-            fontWeight: FontWeight.w500,
-            color: AppColors.textColor,
-          ),
-          bodySmall: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: AppColors.textColor.withOpacity(0.8),
-            fontSize: 18.getW(context),
-          ),
-        ),
+        
       ),
       initialRoute: '/',
       routes: {
         '/': (context) => const HomeScreen(),
-        // '/about': (context) => const AboutScreen()
       },
     );
   }

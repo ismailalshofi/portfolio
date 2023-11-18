@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ismail_portfolio/constants/app_text.dart';
-import 'package:ismail_portfolio/presentation/utils/extensions.dart';
-import 'package:ismail_portfolio/presentation/utils/spacer.dart';
+import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
 import 'package:ismail_portfolio/presentation/widgets/animated_scroll_button.dart';
 
 import '../../../constants/app_colors.dart';
@@ -18,7 +17,7 @@ class Intro extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-           SizedBox(height: 250.getH(context)),
+          200.height,
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -26,20 +25,28 @@ class Intro extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                 
                   Text(
                     AppText.welcomeText,
-                    style: Theme.of(context).textTheme.titleSmall,
+                    style: TextStyle(
+                      fontSize: 50.sp,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.textColor,
+                    ),
                   ),
                   Text(
                     AppText.flutterDev,
-                    style: Theme.of(context).textTheme.titleLarge,
+                    style: TextStyle(
+                      fontSize: 250.sp,
+                      height: 1,
+                      fontWeight: FontWeight.w500,
+                      color: AppColors.textColor,
+                    ),
                   ),
                 ],
               ),
               Container(
-                height: 200.getH(context),
-                width: 200.getW(context),
+                height: 260.h,
+                width: 300.w,
                 decoration: BoxDecoration(
                   color: AppColors.orange,
                   borderRadius: BorderRadius.circular(30),
@@ -56,7 +63,7 @@ class Intro extends StatelessWidget {
               AnimatedScrollButton(),
             ],
           ),
-          SizedBox(height: 200.getH(context)),
+          200.height
         ],
       ),
     );
