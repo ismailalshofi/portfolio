@@ -89,7 +89,7 @@ void snackBar(
         onVisible: onVisible?.call(),
         content: content ??
             Padding(
-              padding: padding ?? EdgeInsets.symmetric(vertical: 4),
+              padding: padding ?? const EdgeInsets.symmetric(vertical: 4),
               child: Text(
                 title,
               ),
@@ -130,7 +130,7 @@ Route<T> buildPageRoute<T>(
         pageBuilder: (c, a1, a2) => child,
         transitionsBuilder: (c, anim, a2, child) {
           return RotationTransition(
-              child: child, turns: ReverseAnimation(anim));
+              turns: ReverseAnimation(anim), child: child);
         },
         transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
       );
@@ -138,7 +138,7 @@ Route<T> buildPageRoute<T>(
       return PageRouteBuilder(
         pageBuilder: (c, a1, a2) => child,
         transitionsBuilder: (c, anim, a2, child) {
-          return ScaleTransition(child: child, scale: anim);
+          return ScaleTransition(scale: anim, child: child);
         },
         transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
       );
@@ -147,11 +147,11 @@ Route<T> buildPageRoute<T>(
         pageBuilder: (c, a1, a2) => child,
         transitionsBuilder: (c, anim, a2, child) {
           return SlideTransition(
-            child: child,
             position: Tween(
-              begin: Offset(1.0, 0.0),
-              end: Offset(0.0, 0.0),
+              begin: const Offset(1.0, 0.0),
+              end: const Offset(0.0, 0.0),
             ).animate(anim),
+            child: child,
           );
         },
         transitionDuration: duration ?? pageRouteTransitionDurationGlobal,
@@ -161,11 +161,11 @@ Route<T> buildPageRoute<T>(
         pageBuilder: (c, a1, a2) => child,
         transitionsBuilder: (c, anim, a2, child) {
           return SlideTransition(
-            child: child,
             position: Tween(
-              begin: Offset(0.0, 1.0),
-              end: Offset(0.0, 0.0),
+              begin:const Offset(0.0, 1.0),
+              end:const Offset(0.0, 0.0),
             ).animate(anim),
+            child: child,
           );
         },
         transitionDuration: duration ?? pageRouteTransitionDurationGlobal,

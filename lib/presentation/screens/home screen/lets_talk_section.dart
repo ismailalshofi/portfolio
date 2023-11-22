@@ -134,7 +134,7 @@ class LetsTalk extends StatelessWidget {
             child: Text(
               "© 2023 Built & Desiged By Ismail Alshofi",
               style: TextStyle(
-                fontSize: 30.sp,
+                fontSize: 25.sp,
                 fontWeight: FontWeight.w300,
                 color: AppColors.white,
               ),
