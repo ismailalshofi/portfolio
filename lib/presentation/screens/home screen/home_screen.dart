@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ismail_portfolio/constants/app_colors.dart';
-import 'package:ismail_portfolio/constants/app_style.dart';
 import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
+import 'package:ismail_portfolio/core/values/values.dart';
 import 'package:ismail_portfolio/presentation/widgets/animated_text.dart';
 
 import 'introduction_section.dart';
@@ -53,15 +52,15 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             const AnimatedText(text: " Home "),
-            SizedBox(width: 40.w),
+            40.width,
             const AnimatedText(text: " Work "),
-            SizedBox(width: 40.w),
+            40.width,
             const AnimatedText(text: "Contact"),
-            SizedBox(width: 40.w),
+            40.width,
             const AnimatedText(text: " About"),
-            SizedBox(width: 40.w),
+            40.width,
             const AnimatedText(text: "Resume"),
-            SizedBox(width: 40.w),
+            40.width,
           ],
         ),
       ),
@@ -69,6 +68,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   _buildAppLogo() {
-    return const Text("Ismail\n-Alshofi", style: AppStyles.logoItemStyle);
+    return Text(
+      "Ismail\n-Alshofi",
+      style: TextStyle(
+        color: AppColors.textColor,
+        fontSize: 30.sp,
+      ),
+    );
   }
 }

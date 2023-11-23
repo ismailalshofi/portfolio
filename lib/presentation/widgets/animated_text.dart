@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ismail_portfolio/constants/app_colors.dart';
 import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
+import 'package:ismail_portfolio/core/values/values.dart';
 
 class AnimatedText extends StatefulWidget {
   final String text;

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ismail_portfolio/constants/app_text.dart';
 import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
+import 'package:ismail_portfolio/core/values/values.dart';
 import 'package:ismail_portfolio/presentation/widgets/animated_scroll_button.dart';
-
-import '../../../constants/app_colors.dart';
 
 class Intro extends StatelessWidget {
   const Intro({

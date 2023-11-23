@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ismail_portfolio/core/values/values.dart';
 
-import '../../constants/app_colors.dart';
 
 class WhyHireMeScreen extends StatelessWidget {
   const WhyHireMeScreen({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ismail_portfolio/constants/app_colors.dart';
 import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
 import 'package:ismail_portfolio/core/utils/extensions/widget_extensions.dart';
+import 'package:ismail_portfolio/core/values/values.dart';
 import 'package:ismail_portfolio/presentation/widgets/on_hover.dart';
 
 class LetsTalk extends StatelessWidget {

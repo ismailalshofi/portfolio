@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ismail_portfolio/constants/app_colors.dart';
+import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
+
+import '../../core/values/values.dart';
 
 class AnimatedScrollButton extends StatefulWidget {
   const AnimatedScrollButton({Key? key}) : super(key: key);
@@ -40,10 +42,10 @@ class _AnimatedScrollButtonState extends State<AnimatedScrollButton> {
                 ),
               ),
             ),
-            const Icon(
+             Icon(
               Icons.keyboard_double_arrow_down_rounded,
               color: AppColors.orange,
-              size: 15,
+              size: 15.sp,
             ),
           ],
         ),
