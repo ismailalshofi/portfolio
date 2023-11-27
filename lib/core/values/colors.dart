@@ -1,14 +1,14 @@
 part of values;
 
 class AppColors {
-  
-  static const Color black =  Color(0xff000000);
-  static const Color white =  Color(0xffffffff);
+  static const Color black = Color(0xff000000);
+  static Color black08 = const Color(0xff000000).withOpacity(0.8);
+  static const Color white = Color(0xffffffff);
 
-  static const Color pink =  Color(0xffFCDEDD);
-  static const Color lightPink =  Color(0xffFFE8E7);
+  static const Color pink = Color(0xffFCDEDD);
+  static const Color lightPink = Color(0xffFFE8E7);
 
-  static const Color lightCyan =  Color(0xffCCEDFF);
+  static const Color lightCyan = Color(0xffCCEDFF);
 
   static const Color yellow = Color(0xfffee044);
 
@@ -17,9 +17,8 @@ class AppColors {
 
   static const Color silver = Color(0xffD1D1D1);
   static const Color grey = Color(0xffF8F9FA);
-  
 
-  static const Color orange =  Color(0xffFE6D3E);
+  static const Color orange = Color(0xffFE6D3E);
 
   static const Color textColor = Color(0xff191B2E);
   static const Color lightBlue = Color(0xff9FC2D5);

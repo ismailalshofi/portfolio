@@ -12,9 +12,12 @@ extension ContextExtensions on BuildContext {
   void openDrawer() => Scaffold.of(this).openDrawer();
 
   void openEndDrawer() => Scaffold.of(this).openEndDrawer();
+
+  push(dynamic route) {
+    return Navigator.push(this, route);
+  }
 }
 
 void finish(BuildContext context, [Object? result]) {
   if (Navigator.canPop(context)) Navigator.pop(context, result);
 }
-

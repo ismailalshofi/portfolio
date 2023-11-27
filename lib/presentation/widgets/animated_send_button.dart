@@ -4,12 +4,12 @@ class AnimatedSendButton extends StatefulWidget {
   const AnimatedSendButton({Key? key}) : super(key: key);
 
   @override
-  _AnimatedSendButtonState createState() => _AnimatedSendButtonState();
+  State<AnimatedSendButton> createState() => _AnimatedSendButtonState();
 }
 
 class _AnimatedSendButtonState extends State<AnimatedSendButton> {
   bool isHoverd = false;
-  Widget iconWidget = Icon(Icons.mail);
+  Widget iconWidget = const Icon(Icons.mail);
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +28,10 @@ class _AnimatedSendButtonState extends State<AnimatedSendButton> {
   void onHover(isHoverd) {
     setState(() {
       if (isHoverd) {
-        iconWidget = Icon(Icons.send);
+        iconWidget = const Icon(Icons.send);
       }
       else {
-        iconWidget = Icon(Icons.mail);
+        iconWidget = const Icon(Icons.mail);
       }
 
       this.isHoverd = isHoverd;

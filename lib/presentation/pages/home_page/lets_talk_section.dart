@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ismail_portfolio/core/layout/adaptive.dart';
 import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
 import 'package:ismail_portfolio/core/utils/extensions/widget_extensions.dart';
 import 'package:ismail_portfolio/core/values/values.dart';
 import 'package:ismail_portfolio/presentation/widgets/on_hover.dart';
+import 'package:ismail_portfolio/presentation/widgets/spaces.dart';
 
 class LetsTalk extends StatelessWidget {
   final List contact = [
@@ -33,17 +35,17 @@ class LetsTalk extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      width: size.width,
       height: size.height,
       color: AppColors.black,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const SizedBox(),
+          const SpaceH16(),
           Container(
-            height: 250.h,
-            width: 300.w,
+            height: assignHeight(context, 0.15),
+            width: responsiveSize(
+                context, assignWidth(context, 0.2), assignWidth(context, 0.1)),
             decoration: BoxDecoration(
               color: AppColors.orange,
               borderRadius: BorderRadius.circular(30),
@@ -51,9 +53,9 @@ class LetsTalk extends StatelessWidget {
             child: const SizedBox(),
           ),
           Text(
-            "Let's work together",
+            AppText.letsTalk,
             style: TextStyle(
-              fontSize: 180.sp,
+              fontSize: responsiveSize(context, 40, 80),
               fontWeight: FontWeight.w500,
               height: 1,
               color: AppColors.silver,
@@ -61,29 +63,26 @@ class LetsTalk extends StatelessWidget {
           ),
           OnHover(
             builder: (isHoverd) => AnimatedOpacity(
-              opacity: isHoverd ? 1 : 0.1,
-              duration: const Duration(milliseconds: 600),
-              child: AnimatedDefaultTextStyle(
+              opacity: isHoverd ? 1 : 0.15,
+              duration: 600.milliseconds,
+              child: Text(
+                AppText.feelFreeToTalk,
                 style: TextStyle(
-                  fontSize: 50.sp,
-                  fontFamily: 'Outfit',
+                  fontSize: responsiveSize(context, 12, 25),
                   fontWeight: FontWeight.w200,
                   color: AppColors.silver,
                 ),
-                duration: const Duration(milliseconds: 150),
-                child: const Text(
-                    "Feel free to reach out anytime, I'm available for Consultancy & Freelancing"),
               ),
             ),
           ),
           OnHover(
             builder: (isHoverd) => AnimatedContainer(
               duration: 350.milliseconds,
-              width: isHoverd ? size.width / 5 : 70.w,
-              height: 60.h,
+              width: isHoverd ? 225 : 50,
+              height: 40,
               decoration: BoxDecoration(
                 border: Border.all(color: AppColors.orange, width: 1),
-                color: const Color(0xdd000000),
+                color: AppColors.black,
                 borderRadius: isHoverd
                     ? BorderRadius.circular(25)
                     : BorderRadius.circular(60),
@@ -96,7 +95,7 @@ class LetsTalk extends StatelessWidget {
                         ? Icons.send
                         : Icons.keyboard_double_arrow_right_rounded,
                     color: AppColors.orange,
-                    size: 30.sp,
+                    size: 12,
                   ),
                   AnimatedDefaultTextStyle(
                     duration: 350.milliseconds,
@@ -104,10 +103,10 @@ class LetsTalk extends StatelessWidget {
                       fontFamily: 'Outfit',
                       color: AppColors.silver,
                       fontWeight: FontWeight.w500,
-                      fontSize: isHoverd ? 35.sp : 0,
+                      fontSize: isHoverd ? responsiveSize(context, 12, 15) : 0,
                     ),
                     child: const Text(
-                      "ialshofi@gmail.com",
+                      AppText.myEmail,
                     ),
                   ),
                 ],
@@ -117,24 +116,25 @@ class LetsTalk extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
-              contact.length,
+              Data.socialData.length,
               (index) => OnHover(
                 builder: (isHoverd) => AnimatedContainer(
-                    transform: isHoverd
-                        ? (Matrix4.identity()..scale(1.1, 1.1, 1.0))
-                        : Matrix4.identity(),
-                    duration: 100.milliseconds,
-                    margin: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Image(image: AssetImage(contact[index]["icon"]))),
+                  transform: isHoverd
+                      ? (Matrix4.identity()..scale(1.1, 1.1, 1.0))
+                      : Matrix4.identity(),
+                  duration: 100.milliseconds,
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Icon(Data.socialData[index].iconData, color: AppColors.orange),
+                ),
               ),
             ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Text(
-              "© 2023 Built & Desiged By Ismail Alshofi",
+              AppText.copyRight,
               style: TextStyle(
-                fontSize: 25.sp,
+                fontSize: responsiveSize(context, 12, 15),
                 fontWeight: FontWeight.w300,
                 color: AppColors.white,
               ),

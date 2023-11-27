@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
+import 'package:ismail_portfolio/core/layout/adaptive.dart';
 import 'package:ismail_portfolio/core/values/values.dart';
 
 class AnimatedText extends StatefulWidget {
@@ -21,7 +21,7 @@ class _AnimatedTextState extends State<AnimatedText> {
       onHover: (_) => onHover(true),
       onExit: (_) => onHover(false),
       child: AnimatedContainer(
-        duration: const Duration(microseconds: 200),
+        duration: Animations.animatedButtons,
         transform: transform,
         child: SizedBox(
             child: Column(
@@ -30,14 +30,15 @@ class _AnimatedTextState extends State<AnimatedText> {
             Text(
               widget.text,
               style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.textColor.withOpacity(0.8),
-                  fontSize: 30.sp),
+                fontWeight: FontWeight.w500,
+                color: AppColors.textColor.withOpacity(0.8),
+                fontSize: responsiveSize(context, 12, 14),
+              ),
             ),
             AnimatedContainer(
-              duration: const Duration(milliseconds: 350),
+              duration: Animations.animatedMenuItemText,
               height: 2,
-              width: isHoverd ? 70.w : 0,
+              width: isHoverd ? 20 : 0,
               color: AppColors.textColor,
               child: const SizedBox(),
             )

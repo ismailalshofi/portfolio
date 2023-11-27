@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:ismail_portfolio/core/utils/extensions/int_extensions.dart';
+import 'package:ismail_portfolio/core/layout/adaptive.dart';
 
 import '../../core/values/values.dart';
 
 class AnimatedScrollButton extends StatefulWidget {
   const AnimatedScrollButton({Key? key}) : super(key: key);
   @override
-  _AnimatedScrollButtonState createState() => _AnimatedScrollButtonState();
+  State<AnimatedScrollButton> createState() => _AnimatedScrollButtonState();
 }
 
 class _AnimatedScrollButtonState extends State<AnimatedScrollButton> {
@@ -17,9 +17,9 @@ class _AnimatedScrollButtonState extends State<AnimatedScrollButton> {
       onHover: (_) => onHover(true),
       onExit: (_) => onHover(false),
       child: AnimatedContainer(
-        duration: const Duration(milliseconds: 350),
-        width: isHoverd ? 40 : 40,
-        height: isHoverd ? 100 : 50,
+        duration: Animations.animatedButtons,
+        width: responsiveSize(context, 30, 40),
+        height: isHoverd ? responsiveSize(context, 70, 100) : 50,
         decoration: BoxDecoration(
           color: const Color(0xdd000000),
           borderRadius:
@@ -35,17 +35,17 @@ class _AnimatedScrollButtonState extends State<AnimatedScrollButton> {
                 style: TextStyle(
                   color: AppColors.white,
                   fontWeight: FontWeight.w500,
-                  fontSize: isHoverd ? 15 : 0,
+                  fontSize: isHoverd ? responsiveSize(context, 10, 15) : 0,
                 ),
                 child: const Text(
                   "SCROLL",
                 ),
               ),
             ),
-             Icon(
+             const Icon(
               Icons.keyboard_double_arrow_down_rounded,
               color: AppColors.orange,
-              size: 15.sp,
+              size: 15,
             ),
           ],
         ),

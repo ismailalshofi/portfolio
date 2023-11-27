@@ -50,7 +50,7 @@ extension WidgetExtension on Widget? {
   }
 
   Widget visible(bool visible, {Widget? defaultWidget}) {
-    return visible ? this! : (defaultWidget ?? SizedBox());
+    return visible ? this! : (defaultWidget ?? const SizedBox());
   }
 
   ClipRRect cornerRadiusWithClipRRectOnly({
@@ -66,16 +66,16 @@ extension WidgetExtension on Widget? {
         topLeft: Radius.circular(topLeft.toDouble()),
         topRight: Radius.circular(topRight.toDouble()),
       ),
-      child: this,
       clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: this,
     );
   }
 
   ClipRRect cornerRadiusWithClipRRect(double radius) {
     return ClipRRect(
       borderRadius: BorderRadius.all(Radius.circular(radius)),
-      child: this,
       clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: this,
     );
   }
 
@@ -86,7 +86,7 @@ extension WidgetExtension on Widget? {
   }) {
     return AnimatedOpacity(
       opacity: opacity,
-      duration: duration ?? Duration(milliseconds: 500),
+      duration: duration ?? const Duration(milliseconds: 500),
       child: this,
     );
   }
